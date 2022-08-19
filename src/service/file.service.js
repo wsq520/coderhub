@@ -15,7 +15,7 @@ class FileService {
     const statement = `SELECT * FROM avatar where user_id = ?;`
     try {
       const [result] = await connection.execute(statement, [userId])
-      return result[0]
+      return result.pop()
     } catch (error) {
       console.log('通过用户id查询其头像出错~')
     }
